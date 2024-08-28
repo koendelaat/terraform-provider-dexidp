@@ -43,6 +43,7 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: "${{ secrets.PASSPHRASE }}"
+          fingerprint: ${{ secrets.FINGERPRINT }}
 
       - name: Release ${{ (!startsWith(github.ref, 'refs/tags/') && 'snapshot') || '' }}
         uses: goreleaser/goreleaser-action@v6.0.0
