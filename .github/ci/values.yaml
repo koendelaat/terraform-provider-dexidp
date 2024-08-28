@@ -1,3 +1,7 @@
+image:
+  repository: ghcr.io/philips-forks/dex
+  tag: v2.41.1-hsdp.2-alpine
+
 volumes:
   - name: tls
     configMap:
@@ -20,6 +24,10 @@ config:
     tlsCert: /etc/dex/tls/server.crt
     tlsKey: /etc/dex/tls/server.key
     tlsClientCA: /etc/dex/tls/ca.crt
+
+  logger:
+    level: "debug"
+    format: "text" # can also be "json"
 
 grpc:
   enabled: true
